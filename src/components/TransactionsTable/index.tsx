@@ -1,11 +1,13 @@
+import { useDarkMode } from "../../hooks/useDarkMode";
 import { useTransactions } from "../../hooks/useTransactions";
 import { Container } from "./styles";
 
 export function TransactionTable() {
   const { transactions } = useTransactions();
+  const { darkMode } = useDarkMode();
 
   return (
-    <Container>
+    <Container className={darkMode ? 'dark': ''}>
       <table>
         <thead>
           <tr>
@@ -22,9 +24,11 @@ export function TransactionTable() {
             <td>{transaction.title}</td>
 
             <td className={transaction.type}>
-              {new Intl.NumberFormat('pt-BR', {
+              {transaction.type === 'withdraw' ? '-' : ''}
+
+              {new Intl.NumberFormat('pt-Ao', {
                 style: 'currency',
-                currency: 'BRL'
+                currency: 'AOA'
               }).format(transaction.amount)}
             </td>
 

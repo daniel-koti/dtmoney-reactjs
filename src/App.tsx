@@ -6,6 +6,7 @@ import { Header } from "./components/Header";
 import { NewTransactionModal } from './components/NewTransactionModal';
 import { GlobalStyle } from "./styles/global";
 import { TransactionsProvider } from './hooks/useTransactions';
+import { DarkModeProvider } from './hooks/useDarkMode';
 
 Modal.setAppElement('#root');
 
@@ -22,16 +23,20 @@ export function App() {
 
   return (
     <TransactionsProvider>
-      <Header onOpenNewTransactionModal={handleOpenNewTransactionModal} />
+      <DarkModeProvider>
+        <Header 
+          onOpenNewTransactionModal={handleOpenNewTransactionModal}
+        />
 
-      <Dashboard />
+        <Dashboard />
 
-      <NewTransactionModal 
-        isOpen={isNewTransactionModalOpen} 
-        onRequestClose={handleCloseNewTransactionModal} 
-      />
+        <NewTransactionModal 
+          isOpen={isNewTransactionModalOpen} 
+          onRequestClose={handleCloseNewTransactionModal} 
+        />
 
-      <GlobalStyle />
+        <GlobalStyle />
+      </DarkModeProvider>
     </TransactionsProvider>
   );
 }

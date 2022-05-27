@@ -7,6 +7,7 @@ import closeImg from '../../assets/close.svg';
 
 import { Container, TransactionTypeContainer, RadioBox } from './styles';
 import { useTransactions } from '../../hooks/useTransactions';
+import { useDarkMode } from '../../hooks/useDarkMode';
 
 interface NewTransactionModalProps {  
   isOpen: boolean;
@@ -15,6 +16,7 @@ interface NewTransactionModalProps {
 
 export function NewTransactionModal({ isOpen, onRequestClose}: NewTransactionModalProps) {
   const { createTransaction } = useTransactions();
+  const { darkMode } = useDarkMode();
 
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');

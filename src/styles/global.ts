@@ -13,6 +13,12 @@ export const GlobalStyle = createGlobalStyle`
     --text-body: #969CB3;
 
     --shape: #FFFFFF;
+
+    /* *********************** */
+    --blue-dark: #242526;
+    --blue-second-color: #3a3b3c;
+    --text-title-dark: #fff;
+    --background-dark: #7a7676;
   }
 
   * {

@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   background: var(--blue);
+  
+  &.dark {
+    background: var(--blue-dark);
+  }
 `;
 
 export const Content = styled.div`
@@ -9,11 +13,23 @@ export const Content = styled.div`
   margin: 0 auto;
 
   padding: 2rem 1rem 12rem;
-  display: flex;
+  display: flex;  
   align-items: center;
   justify-content: space-between;
 
-  button {
+  &.dark button {
+    background: var(--blue-second-color);
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+
+    button.toggle-theme {
+      margin-right: 1rem;
+    }
+
+    button {
     font-size: 1rem;
     color: #fff;
     background: var(--blue-light);
@@ -28,4 +44,4 @@ export const Content = styled.div`
       filter: brightness(0.9);
     }
   }
-`
+}`

@@ -4,9 +4,11 @@ import totalImg from '../../assets/total.svg';
 
 import { Container } from "./styles";
 import { useTransactions } from '../../hooks/useTransactions';
+import { useDarkMode } from '../../hooks/useDarkMode';
 
 export function Summary() {   
   const { transactions } = useTransactions();
+  const { darkMode } = useDarkMode();
 
   const summary = transactions.reduce((acc, transaction) => {
     if (transaction.type === 'deposit') {
@@ -25,16 +27,16 @@ export function Summary() {
   })
 
   return (
-    <Container>
+    <Container className={darkMode ? 'dark': ''}>
       <div>
         <header>
           <p>Entradas</p>
           <img src={incomeImg} alt="Entradas" />
         </header>
         <strong>
-          {new Intl.NumberFormat('pt-BR', {
+          {new Intl.NumberFormat('pt-Ao', {
             style: 'currency',
-            currency: 'BRL'
+            currency: 'AOA'
           }).format(summary.deposit)}
         </strong>
       </div>
@@ -44,21 +46,21 @@ export function Summary() {
           <img src={outcomeImg} alt="Saídas" />
         </header>
         <strong>-
-        {new Intl.NumberFormat('pt-BR', {
+        {new Intl.NumberFormat('pt-Ao', {
             style: 'currency',
-            currency: 'BRL'
+            currency: 'AOA'
           }).format(summary.withdraw)}
         </strong>
       </div>
-      <div className="highlight-background">
+      <div className={darkMode ? 'dark': 'highlight-background'}>
         <header>
           <p>Total</p>
           <img src={totalImg} alt="Total" />
         </header>
         <strong>
-        {new Intl.NumberFormat('pt-BR', {
+        {new Intl.NumberFormat('pt-Ao', {
             style: 'currency',
-            currency: 'BRL'
+            currency: 'AOA'
           }).format(summary.total)}
         </strong>
       </div>

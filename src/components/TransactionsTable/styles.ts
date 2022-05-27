@@ -3,6 +3,18 @@ import styled from 'styled-components';
 export const Container = styled.div`
   margin-top: 4rem;
 
+  &.dark table th {
+    color: var(--blue-second-color);
+  }
+
+  &.dark table td {
+    background: var(--blue-second-color);
+  }
+
+  &.dark table td:first-child {
+    color: var(--text-title-dark);
+  }
+
   table {
     width: 100%;
     border-spacing: 0 0.5rem;

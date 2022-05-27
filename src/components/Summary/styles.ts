@@ -7,6 +7,11 @@ export const Container = styled.div`
 
   margin-top: -10rem;
 
+  &.dark div {
+    background: var(--blue-second-color);
+    color: var(--text-title-dark);
+  }
+
   div {
     background: var(--shape);
     padding: 1.5rem 2rem;
